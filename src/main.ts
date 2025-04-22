@@ -2,6 +2,7 @@ import { Game, Scale, WEBGL } from 'phaser'
 
 import { BootScene } from '@app/scenes/boot'
 import { HouseScene } from '@app/scenes/house'
+import { InterfaceScene } from '@app/scenes/interface'
 import { PreloaderScene } from '@app/scenes/preloader'
 
 function createGame() {
@@ -18,8 +19,7 @@ function createGame() {
 
     canvasStyle: 'display:flex',
 
-    pixelArt: true,
-    backgroundColor: '#000',
+    backgroundColor: '#ccc',
 
     physics: {
       default: 'arcade',
@@ -29,7 +29,11 @@ function createGame() {
       },
     },
 
-    scene: [BootScene, PreloaderScene, HouseScene],
+    input: {
+      activePointers: 2,
+    },
+
+    scene: [BootScene, PreloaderScene, HouseScene, InterfaceScene],
   })
 }
 

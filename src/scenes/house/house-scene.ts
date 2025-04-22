@@ -8,6 +8,8 @@ export class HouseScene extends Scene {
   }
 
   create() {
+    this.scene.launch(Scenes.Interface)
+
     console.log('>>> init house scene')
   }
 }

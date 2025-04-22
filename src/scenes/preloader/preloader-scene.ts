@@ -7,6 +7,12 @@ export class PreloaderScene extends Scene {
     super(Scenes.Preloader)
   }
 
+  preload() {
+    this.load.setBaseURL('assets')
+
+    this.load.image('run-button', '/interface/run-button.png')
+  }
+
   create() {
     this.scene.start(Scenes.House)
   }
