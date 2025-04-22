@@ -3,6 +3,7 @@ import { Game, Scale, WEBGL } from 'phaser'
 import { BootScene } from '@app/scenes/boot'
 import { HouseScene } from '@app/scenes/house'
 import { InterfaceScene } from '@app/scenes/interface'
+import { JoystickScene } from '@app/scenes/joystick'
 import { PreloaderScene } from '@app/scenes/preloader'
 
 function createGame() {
@@ -33,7 +34,7 @@ function createGame() {
       activePointers: 2,
     },
 
-    scene: [BootScene, PreloaderScene, HouseScene, InterfaceScene],
+    scene: [BootScene, PreloaderScene, HouseScene, JoystickScene, InterfaceScene],
   })
 }
 
