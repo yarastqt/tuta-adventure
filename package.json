@@ -1,0 +1,23 @@
+{
+  "name": "tuta-adventure",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "build": "vite build --config config.prod.mjs",
+    "dev": "vite --config config.dev.mjs"
+  },
+  "dependencies": {
+    "phaser": "3.88.2",
+    "ts-invariant": "0.10.3"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "5.2.2",
+    "@typescript-eslint/eslint-plugin": "7.13.1",
+    "@typescript-eslint/parser": "7.13.1",
+    "eslint": "8.57.0",
+    "prettier": "3.5.3",
+    "typescript": "5.2.2",
+    "vite": "5.3.1",
+    "vite-tsconfig-paths": "5.1.4"
+  }
+}
