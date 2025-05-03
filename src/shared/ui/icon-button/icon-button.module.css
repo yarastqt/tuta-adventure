@@ -1,0 +1,19 @@
+.root {
+  background: 0;
+  padding: 0;
+  border: 0;
+
+  height: 56px;
+  width: 56px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+
+  background-color: var(--color-background-overlay);
+  color: var(--color-on-background);
+}
+
+.root[data-shape="circled"] {
+  border-radius: 50%;
+}

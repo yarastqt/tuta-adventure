@@ -1,0 +1,10 @@
+.root {
+  position: fixed;
+  inset: 0;
+}
+
+.controls {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+}

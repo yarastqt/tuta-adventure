@@ -3,7 +3,10 @@
 
   --color-secondary: #B6B19A;
   --color-primary: #6C9567;
+
   --color-background: #0b1012;
+  --color-background-overlay: rgb(11, 16 ,18, 0.8);
+  --color-on-background: #fff;
 }
 
 body {

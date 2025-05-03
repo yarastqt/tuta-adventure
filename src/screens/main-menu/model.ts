@@ -23,7 +23,7 @@ sample({
 
 sample({
   clock: loadingFx.done,
-  target: [GameModel.startGame, RouterModel.navigate.prepend(() => Routes.Default)],
+  target: [GameModel.startGame, RouterModel.navigate.prepend(() => Routes.Controls)],
 })
 
 export const MainMenuModel = {
