@@ -1,0 +1,20 @@
+.root {
+  font-family: var(--font-family);
+  font-size: 38px;
+  line-height: 38px;
+  background: 0;
+  padding: 0;
+  border: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.root[data-color="primary"] {
+  color: var(--color-primary);
+}
+
+.root[data-color="secondary"] {
+  color: var(--color-secondary);
+}

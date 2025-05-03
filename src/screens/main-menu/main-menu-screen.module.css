@@ -1,0 +1,56 @@
+.root {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  width: 100dvw;
+  height: 100dvh;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+}
+
+.cover {
+  background-color: #fff;
+  flex: 0 0 60%;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.cover_isLoading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.menu {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.version {
+  font-family: var(--font-family);
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-secondary);
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}
+
+.loader {
+  display: flex;
+  gap: 8px;
+  color: var(--color-primary);
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}

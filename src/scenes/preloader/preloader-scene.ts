@@ -14,8 +14,4 @@ export class PreloaderScene extends Scene {
     this.load.image('stick', '/interface/stick.png')
     this.load.image('run-button', '/interface/run-button.png')
   }
-
-  create() {
-    this.scene.start(Scenes.House)
-  }
 }

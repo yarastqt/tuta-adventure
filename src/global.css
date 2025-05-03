@@ -1,0 +1,12 @@
+:root {
+  --font-family: 'Cormorant Garamond';
+
+  --color-secondary: #B6B19A;
+  --color-primary: #6C9567;
+  --color-background: #0b1012;
+}
+
+body {
+  font-feature-settings: 'liga', 'kern', 'pnum', 'lnum';
+  user-select: none;
+}
