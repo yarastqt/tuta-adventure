@@ -3,8 +3,6 @@ import { Game, Scale, WEBGL } from 'phaser'
 import invariant from 'ts-invariant'
 
 import { HouseScene } from '@app/scenes/house'
-import { InterfaceScene } from '@app/scenes/interface'
-import { JoystickScene } from '@app/scenes/joystick'
 import { PreloaderScene } from '@app/scenes/preloader'
 import { Scenes } from '@app/shared/scenes'
 
@@ -42,7 +40,7 @@ const createGameFx = createEffect(() => {
       activePointers: 2,
     },
 
-    scene: [PreloaderScene, HouseScene, JoystickScene, InterfaceScene],
+    scene: [PreloaderScene, HouseScene],
   })
 
   return game
