@@ -9,9 +9,5 @@ export class PreloaderScene extends Scene {
 
   preload() {
     this.load.setBaseURL('assets')
-
-    this.load.image('thumb', '/interface/thumb.png')
-    this.load.image('stick', '/interface/stick.png')
-    this.load.image('run-button', '/interface/run-button.png')
   }
 }
