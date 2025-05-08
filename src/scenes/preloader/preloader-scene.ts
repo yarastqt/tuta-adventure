@@ -8,6 +8,13 @@ export class PreloaderScene extends Scene {
   }
 
   preload() {
-    this.load.setBaseURL('assets')
+    this.load.setBaseURL('/')
+
+    this.load.image('tiles', 'prototype/tiles.png')
+    this.load.tilemapTiledJSON('house', 'prototype/house.json')
+  }
+
+  create() {
+    this.scene.start(Scenes.House)
   }
 }
