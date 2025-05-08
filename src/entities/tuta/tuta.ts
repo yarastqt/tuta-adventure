@@ -2,7 +2,7 @@ import { Physics, Scene, type Types } from 'phaser'
 import { invariant } from 'ts-invariant'
 
 export class Tuta extends Physics.Arcade.Sprite {
-  body: Physics.Arcade.Body
+  declare body: Physics.Arcade.Body
 
   private cursors: Types.Input.Keyboard.CursorKeys
 
@@ -17,10 +17,12 @@ export class Tuta extends Physics.Arcade.Sprite {
 
     super(scene, x, y, 'ghost')
 
+    scene.add.existing(this)
+    scene.physics.add.existing(this)
+
     invariant(scene.input.keyboard)
 
     this.cursors = scene.input.keyboard.createCursorKeys()
-    this.body = scene.physics.add.image(x, y, 'ghost').body
 
     this.body.setSize(this.body.width * 1.2, this.body.height * 1.2)
   }

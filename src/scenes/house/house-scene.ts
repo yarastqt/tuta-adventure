@@ -32,6 +32,10 @@ export class HouseScene extends Scene {
 
     this.physics.add.collider(this.tuta, walls)
 
+    this.cameras.main.setBounds(0, 0, house.widthInPixels, house.heightInPixels)
+    this.cameras.main.startFollow(this.tuta)
+    this.cameras.main.setRoundPixels(true)
+
     walls.renderDebug(this.add.graphics(), {
       collidingTileColor: new Display.Color(243, 134, 48, 200),
       faceColor: new Display.Color(40, 39, 37, 255),
