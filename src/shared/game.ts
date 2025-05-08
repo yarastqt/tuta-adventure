@@ -31,6 +31,8 @@ const createGameFx = createEffect(() => {
     physics: {
       default: 'arcade',
       arcade: {
+        fps: 60,
+        timeScale: 1,
         gravity: { x: 0, y: 0 },
         debug: true,
       },
