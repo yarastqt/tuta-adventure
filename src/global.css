@@ -10,6 +10,7 @@
 }
 
 body {
+  margin: 0;
   font-feature-settings: 'liga', 'kern', 'pnum', 'lnum';
   user-select: none;
 }
