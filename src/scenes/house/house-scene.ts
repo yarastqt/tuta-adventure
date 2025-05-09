@@ -33,6 +33,9 @@ export class HouseScene extends Scene {
     this.physics.add.collider(this.tuta, walls)
 
     this.cameras.main.setBounds(0, 0, house.widthInPixels, house.heightInPixels)
+    this.cameras.main.setZoom(
+      Math.max(this.scale.width / house.widthInPixels, this.scale.height / house.heightInPixels),
+    )
     this.cameras.main.startFollow(this.tuta)
     this.cameras.main.setRoundPixels(true)
 
