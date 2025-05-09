@@ -41,5 +41,11 @@ export class Tuta extends Physics.Arcade.Sprite {
     } else if (this.cursors.down.isDown) {
       this.body.setVelocityY(this.velocity)
     }
+
+    if (this.body.velocity.x !== 0 || this.body.velocity.y !== 0) {
+      const angle = Math.atan2(this.body.velocity.y, this.body.velocity.x) * (180 / Math.PI)
+
+      this.setAngle(angle + 90)
+    }
   }
 }
