@@ -1,5 +1,7 @@
-import { Physics, Scene, type Types } from 'phaser'
+import { Input, Physics, Scene, type Types } from 'phaser'
 import { invariant } from 'ts-invariant'
+
+import type { InteractionObject } from '@app/shared/system/interaction'
 
 export class Tuta extends Physics.Arcade.Sprite {
   declare body: Physics.Arcade.Body
@@ -7,6 +9,8 @@ export class Tuta extends Physics.Arcade.Sprite {
   private cursors: Types.Input.Keyboard.CursorKeys
 
   private velocity = 100
+
+  private interactionObject: InteractionObject | null = null
 
   constructor(scene: Scene, x: number = 0, y: number = 0) {
     const graphics = scene.make.graphics({ x: 0, y: 0 })
@@ -25,6 +29,14 @@ export class Tuta extends Physics.Arcade.Sprite {
     this.cursors = scene.input.keyboard.createCursorKeys()
 
     this.body.setSize(this.body.width * 1.2, this.body.height * 1.2)
+
+    scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.E).on('down', () => {
+      this.interactionObject?.interact()
+    })
+  }
+
+  preUpdate() {
+    this.interactionObject = null
   }
 
   update() {
@@ -47,5 +59,9 @@ export class Tuta extends Physics.Arcade.Sprite {
 
       this.setAngle(angle + 90)
     }
+  }
+
+  setInteractionObject(object: InteractionObject | null) {
+    this.interactionObject = object
   }
 }

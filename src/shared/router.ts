@@ -8,7 +8,7 @@ export enum Routes {
 
 const navigate = createEvent<Routes>()
 
-const $route = createStore(Routes.MainMenu)
+const $route = createStore(Routes.Default)
 
 sample({
   clock: navigate,
