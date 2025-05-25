@@ -10,7 +10,7 @@ import type { InteractionObject } from '@app/shared/system/interaction'
 export class HouseScene extends Scene {
   private tuta: Tuta
   private radiola: Radiola
-  private bone: Radiola
+  private bone: Bone
   private interactionGroup: GameObjects.Group
 
   constructor() {

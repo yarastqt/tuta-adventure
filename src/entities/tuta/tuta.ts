@@ -9,6 +9,7 @@ interface Controls {
   down: Phaser.Input.Keyboard.Key
   right: Phaser.Input.Keyboard.Key
   interact: Phaser.Input.Keyboard.Key
+  pickup: Phaser.Input.Keyboard.Key
 }
 
 export class Tuta extends Physics.Arcade.Sprite {
@@ -40,12 +41,21 @@ export class Tuta extends Physics.Arcade.Sprite {
       down: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.S),
       right: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.D),
       interact: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.E),
+      pickup: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.F),
     }
 
     this.body.setSize(this.body.width * 1.2, this.body.height * 1.2)
 
     this.controls.interact.on('down', () => {
-      this.interactionObject?.interact()
+      this.interactionObject?.interact?.()
+    })
+
+    this.controls.pickup.on('down', () => {
+      if (this.interactionObject?.anchor) {
+        this.interactionObject.drop?.()
+      } else {
+        this.interactionObject?.pickup?.(this)
+      }
     })
   }
 
