@@ -1,12 +1,20 @@
-import { Input, Physics, Scene, type Types } from 'phaser'
+import { Input, Physics, Scene } from 'phaser'
 import { invariant } from 'ts-invariant'
 
 import type { InteractionObject } from '@app/shared/system/interaction'
 
+interface Controls {
+  up: Phaser.Input.Keyboard.Key
+  left: Phaser.Input.Keyboard.Key
+  down: Phaser.Input.Keyboard.Key
+  right: Phaser.Input.Keyboard.Key
+  interact: Phaser.Input.Keyboard.Key
+}
+
 export class Tuta extends Physics.Arcade.Sprite {
   declare body: Physics.Arcade.Body
 
-  private cursors: Types.Input.Keyboard.CursorKeys
+  private controls: Controls
 
   private velocity = 100
 
@@ -26,11 +34,17 @@ export class Tuta extends Physics.Arcade.Sprite {
 
     invariant(scene.input.keyboard)
 
-    this.cursors = scene.input.keyboard.createCursorKeys()
+    this.controls = {
+      up: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.W),
+      left: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.A),
+      down: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.S),
+      right: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.D),
+      interact: scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.E),
+    }
 
     this.body.setSize(this.body.width * 1.2, this.body.height * 1.2)
 
-    scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.E).on('down', () => {
+    this.controls.interact.on('down', () => {
       this.interactionObject?.interact()
     })
   }
@@ -42,15 +56,15 @@ export class Tuta extends Physics.Arcade.Sprite {
   update() {
     this.body.setVelocity(0)
 
-    if (this.cursors.left.isDown) {
+    if (this.controls.left.isDown) {
       this.body.setVelocityX(this.velocity * -1)
-    } else if (this.cursors.right.isDown) {
+    } else if (this.controls.right.isDown) {
       this.body.setVelocityX(this.velocity)
     }
 
-    if (this.cursors.up.isDown) {
+    if (this.controls.up.isDown) {
       this.body.setVelocityY(this.velocity * -1)
-    } else if (this.cursors.down.isDown) {
+    } else if (this.controls.down.isDown) {
       this.body.setVelocityY(this.velocity)
     }
 
