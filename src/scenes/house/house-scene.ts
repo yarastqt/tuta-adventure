@@ -1,6 +1,7 @@
 import { Display, GameObjects, Scene } from 'phaser'
 import invariant from 'ts-invariant'
 
+import { Bone } from '@app/entities/bone'
 import { Radiola } from '@app/entities/radiola'
 import { Tuta } from '@app/entities/tuta'
 import { Scenes } from '@app/shared/scenes'
@@ -9,6 +10,7 @@ import type { InteractionObject } from '@app/shared/system/interaction'
 export class HouseScene extends Scene {
   private tuta: Tuta
   private radiola: Radiola
+  private bone: Radiola
   private interactionGroup: GameObjects.Group
 
   constructor() {
@@ -23,24 +25,27 @@ export class HouseScene extends Scene {
 
     const startPoint = house.getObjectLayer('start-point')
     const radiolaPoint = house.getObjectLayer('radiola-point')
+    const bonePoint = house.getObjectLayer('bone-point')
 
     const floor = house.createLayer('floor', tiles, 0, 0)
     const walls = house.createLayer('walls', tiles, 0, 0)
 
     invariant(startPoint)
     invariant(radiolaPoint)
+    invariant(bonePoint)
     invariant(walls)
     invariant(floor)
 
     walls.setCollisionByProperty({ isCollidable: true })
 
+    this.bone = new Bone(this, bonePoint.objects[0].x, bonePoint.objects[0].y)
     this.tuta = new Tuta(this, startPoint.objects[0].x, startPoint.objects[0].y)
     this.radiola = new Radiola(this, radiolaPoint.objects[0].x, radiolaPoint.objects[0].y)
 
+    this.interactionGroup = this.add.group([this.radiola, this.bone], { name: 'interaction-group' })
+
     this.physics.add.collider(this.tuta, walls)
     this.physics.add.collider(this.tuta, this.radiola)
-
-    this.interactionGroup = this.add.group([this.radiola], { name: 'interaction-group' })
 
     for (const object of this.interactionGroup.children.entries as InteractionObject[]) {
       this.physics.add.overlap(object.area, this.tuta, () => {

@@ -12,6 +12,7 @@ export class PreloaderScene extends Scene {
 
     this.load.image('tiles', 'prototype/tiles.png')
     this.load.image('radiola', 'prototype/radiola.png')
+    this.load.image('bone', 'prototype/bone.png')
     this.load.tilemapTiledJSON('house', 'prototype/house.json')
   }
 
