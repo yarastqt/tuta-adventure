@@ -5,6 +5,7 @@ import { Bed } from '@app/entities/bed'
 import { Bone } from '@app/entities/bone'
 import { Radiola } from '@app/entities/radiola'
 import { Tuta } from '@app/entities/tuta'
+import { Achievement, AchievementModel } from '@app/shared/achievement'
 import { Scenes } from '@app/shared/scenes'
 import type { InteractionObject } from '@app/shared/system/interaction'
 
@@ -54,7 +55,7 @@ export class HouseScene extends Scene {
 
     this.bone.onDrop(() => {
       if (this.physics.overlap(this.bone, this.bed)) {
-        // achiev
+        AchievementModel.achievementCompleted(Achievement.HiddenBone)
       }
     })
 
