@@ -2,15 +2,3 @@
   position: fixed;
   inset: 0;
 }
-
-.thumbstick {
-  position: absolute;
-  left: 32px;
-  bottom: 32px;
-}
-
-.controls {
-  position: absolute;
-  right: 32px;
-  bottom: 32px;
-}

@@ -1,3 +1,4 @@
+import { scopeBind } from 'effector'
 import { Display, GameObjects, Scene } from 'phaser'
 import invariant from 'ts-invariant'
 
@@ -8,6 +9,7 @@ import { Tuta } from '@app/entities/tuta'
 import { Achievement, AchievementModel } from '@app/shared/achievement'
 import { Scenes } from '@app/shared/scenes'
 import type { InteractionObject } from '@app/shared/system/interaction'
+import { scope } from '@app/shared/system/scope'
 
 export class HouseScene extends Scene {
   private tuta: Tuta
@@ -55,7 +57,7 @@ export class HouseScene extends Scene {
 
     this.bone.onDrop(() => {
       if (this.physics.overlap(this.bone, this.bed)) {
-        AchievementModel.achievementCompleted(Achievement.HiddenBone)
+        scopeBind(AchievementModel.achievementCompleted, { scope })(Achievement.HiddenBone)
       }
     })
 
