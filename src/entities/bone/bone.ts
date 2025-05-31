@@ -7,6 +7,7 @@ export class Bone extends Physics.Arcade.Sprite implements InteractionObject {
 
   area: GameObjects.Zone
   anchor: GameObjects.GameObject | null
+  onDropCallback?: () => void
 
   constructor(scene: Scene, x: number = 0, y: number = 0) {
     super(scene, x, y, 'bone')
@@ -25,6 +26,11 @@ export class Bone extends Physics.Arcade.Sprite implements InteractionObject {
 
   drop() {
     this.anchor = null
+    this.onDropCallback?.()
+  }
+
+  onDrop(callback: () => void) {
+    this.onDropCallback = callback
   }
 
   preUpdate() {
