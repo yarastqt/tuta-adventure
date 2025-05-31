@@ -28,6 +28,8 @@ function createWindow(): void {
 }
 
 app.whenReady().then(() => {
+  process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
+
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
   })
