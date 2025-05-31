@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "private": "true",
   "scripts": {
-    "build": "vite build --config config.prod.mjs",
-    "dev": "vite --config config.dev.mjs"
+    "dev": "electron-vite dev"
   },
   "dependencies": {
+    "@electron-toolkit/preload": "3.0.2",
+    "@electron-toolkit/utils": "4.0.0",
     "clsx": "2.1.1",
     "effector": "23.3.0",
     "effector-react": "23.3.0",
+    "electron": "36.3.2",
     "motion": "12.9.2",
     "phaser": "3.88.2",
     "react": "19.1.0",
@@ -22,10 +24,13 @@
     "@types/react-dom": "19.1.2",
     "@typescript-eslint/eslint-plugin": "7.13.1",
     "@typescript-eslint/parser": "7.13.1",
+    "@vitejs/plugin-react": "4.5.0",
+    "electron-vite": "3.1.0",
     "eslint": "8.57.0",
     "prettier": "3.5.3",
     "typescript": "5.2.2",
     "vite": "6.3.5",
     "vite-tsconfig-paths": "5.1.4"
-  }
+  },
+  "main": "./out/main/index.js"
 }
