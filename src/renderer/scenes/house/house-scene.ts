@@ -72,7 +72,6 @@ export class HouseScene extends Scene {
       Math.max(this.scale.width / house.widthInPixels, this.scale.height / house.heightInPixels),
     )
     this.cameras.main.startFollow(this.tuta)
-    this.cameras.main.setRoundPixels(true)
 
     walls.renderDebug(this.add.graphics(), {
       collidingTileColor: new Display.Color(243, 134, 48, 200),

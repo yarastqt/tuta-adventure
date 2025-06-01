@@ -24,9 +24,7 @@ const createGameFx = createEffect(() => {
       parent: 'game-root',
     },
 
-    canvasStyle: 'display:flex',
-
-    backgroundColor: '#ccc',
+    pixelArt: true,
 
     physics: {
       default: 'arcade',
@@ -36,10 +34,6 @@ const createGameFx = createEffect(() => {
         gravity: { x: 0, y: 0 },
         debug: true,
       },
-    },
-
-    input: {
-      activePointers: 2,
     },
 
     scene: [PreloaderScene, HouseScene],
