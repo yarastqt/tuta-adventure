@@ -1,0 +1,12 @@
+.root {
+  position: absolute;
+  background-color: var(--color-background-overlay);
+  backdrop-filter: blur(6px);
+  right: 32px;
+  bottom: 32px;
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-on-background);
+}
